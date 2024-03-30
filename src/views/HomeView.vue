@@ -9,31 +9,31 @@ const items = ref([
   {
     key: 'mail',
     icon: () => h(MailOutlined),
-    label: 'Navigation One',
+    label: '首页',
     title: 'Navigation One',
   },
   {
     key: 'app',
     icon: () => h(AppstoreOutlined),
-    label: 'Navigation Two',
+    label: '',
     title: 'Navigation Two',
   },
   {
     key: 'sub1',
     icon: () => h(SettingOutlined),
-    label: 'Navigation Three - Submenu',
+    label: '登录',
     title: 'Navigation Three - Submenu',
     children: [
       {
         type: 'group',
-        label: 'Item 1',
+        label: '登陆后你可以：',
         children: [
           {
-            label: 'Option 1',
+            label: '关注校园动态',
             key: 'setting:1',
           },
           {
-            label: 'Option 2',
+            label: '发布帖子',
             key: 'setting:2',
           },
         ],
@@ -47,7 +47,7 @@ const items = ref([
             key: 'setting:3',
           },
           {
-            label: 'Option 4',
+            label: '立即登录',
             key: 'setting:4',
           },
         ],
@@ -62,7 +62,7 @@ const items = ref([
         href: 'https://antdv.com',
         target: '_blank',
       },
-      'Navigation Four - Link',
+      '发布帖子',
     ),
     title: 'Navigation Four - Link',
   },
@@ -70,6 +70,7 @@ const items = ref([
 </script>
 
 <script>
+
   import axios from "../http/index.js"
   axios.get("http://localhost:8080/demo_war/InquireNews", "")
 </script>
