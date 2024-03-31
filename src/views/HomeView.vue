@@ -57,12 +57,12 @@ const items = ref([
   {
     key: 'alipay',
     label: h(
-      'a',
-      {
-        href: 'https://antdv.com',
-        target: '_blank',
-      },
-      '发布帖子',
+        'a',
+        {
+          href: 'https://antdv.com',
+          target: '_blank',
+        },
+        '发布帖子',
     ),
     title: 'Navigation Four - Link',
   },
@@ -71,6 +71,11 @@ const items = ref([
 
 <script>
 
-  import axios from "../http/index.js"
-  axios.get("http://localhost:8080/demo_war/InquireNews", "")
+import axios from "axios"
+axios.get("http://localhost:25535/demo_war/InquireNews").then((res) => {
+    console.log(res);
+    console.log(res.data)
+  }).catch((err) => {
+    console.log('请求失败' + err);
+  })
 </script>
