@@ -72,5 +72,5 @@ const items = ref([
 <script>
 
   import axios from "../http/index.js"
-  axios.get("http://localhost:8080/demo_war/InquireNews", "")
+  axios.get("http://103.91.210.232:45247/demo_war/InquireNews", "")
 </script>
