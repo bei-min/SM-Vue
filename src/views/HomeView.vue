@@ -2,9 +2,9 @@
   <a-space direction="vertical" :style="{ width: '100%'}" :size="[0, 48]">
     <a-layout>
       <a-layout-header :style="headerStyle">
-
-        <a-menu v-model:selectedKeys="current" mode="horizontal" :items="items"></a-menu>
+        <Head_Left></Head_Left>
         <Search></Search>
+        <Head_Right></Head_Right>
       </a-layout-header>
       <a-layout-content :style="contentStyle">Content</a-layout-content>
       <a-layout-footer :style="footerStyle">Footer</a-layout-footer>
@@ -14,82 +14,32 @@
 </template>
 
 <script setup>
-import Search from "@/views/Search.vue";
+  import Head_Left from "@/views/推荐页面组件/Head_Left.vue";
+  import Head_Right from "@/views/推荐页面组件/Head_Right.vue";
+  import Search from "@/views/推荐页面组件/Search.vue";
 
-const headerStyle = {
-  display : 'inline',
-  width: '100%',
-  textAlign: 'center',
-  color: '#fff',
-  height: 64,
-  paddingInline: 10,
-  lineHeight: '64px',
-  backgroundColor: '#fff',
-};
-const contentStyle = {
-  textAlign: 'center',
-  minHeight: 120,
-  lineHeight: '120px',
-  color: '#fff',
-  backgroundColor: '#108ee9',
-};
-const footerStyle = {
-  textAlign: 'center',
-  color: '#fff',
-  backgroundColor: '#7dbcea',
-};
-
-import { h, ref } from 'vue';
-import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons-vue';
-
-const current = ref(['mail']);
-const items = ref([
-  {
-    key: 'mail',
-    icon: () => h(MailOutlined),
-    label: '推荐',
-    title: 'Navigation One',
-
-  },
-  {
-    key: 'app',
-    icon: () => h(AppstoreOutlined),
-    label: '分类',
-    title: 'Navigation Two',
-  },
-  {
-    key: 'sub1',
-    icon: () => h(SettingOutlined),
-    label: '登录',
-    title: 'Navigation Three - Submenu',
-    children: [
-      {
-        type: 'group',
-        label: '登陆后你可以：',
-        children: [
-          {
-            label: '关注校园动态',
-            key: 'setting:1',
-          },
-          {
-            label: '发布帖子',
-            key: 'setting:2',
-          },
-        ],
-      },
-      {
-        type: 'group',
-        children: [
-          {
-            label: '立即登录',
-            key: 'setting:4',
-          },
-        ],
-      },
-    ],
-  },
-]);
-
+  const headerStyle = {
+    display : 'flex',
+    textAlign: 'center',
+    color: '#fff',
+    height: 64,
+    paddingInline: 10,
+    lineHeight: '64px',
+    backgroundColor: '#fff',
+  };
+  const contentStyle = {
+    textAlign: 'center',
+    minHeight: 120,
+    lineHeight: '120px',
+    height: '630px',
+    color: '#000',
+    backgroundColor: '#fff',
+  };
+  const footerStyle = {
+    textAlign: 'center',
+    color: '#000',
+    backgroundColor: '#fff',
+  };
 </script>
 
 <script>
@@ -111,7 +61,20 @@ axios.get("http://localhost:25535/demo_war/InquireNews").then((res) => {
     max-width: calc(100%);
     display: flex;
   }
-  li{
-    margin-right: 50px;
+  #menu-left li{
+    margin-right: 125px;
+    font-size: 20px;
+  }
+  #menu-left li span svg{
+    width: 20px;
+    height: 20px;
+  }
+  #menu-right li{
+    margin-left: 125px;
+    font-size: 20px;
+  }
+  #menu-right li span svg{
+    width: 20px;
+    height: 20px;
   }
 </style>

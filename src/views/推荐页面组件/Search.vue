@@ -1,9 +1,9 @@
 <template>
-  <div class="global-search-wrapper" style="width: 300px">
+  <div class="global-search-wrapper" style="width: 350px">
     <a-auto-complete
         v-model:value="value"
         :dropdown-match-select-width="252"
-        style="width: 300px"
+        style="width: 350px;display: block;margin-top: 15px;"
         :options="dataSource"
         @select="onSelect"
         @search="handleSearch"
