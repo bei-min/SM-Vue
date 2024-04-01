@@ -14,9 +14,9 @@
 </template>
 
 <script setup>
-  import Head_Left from "@/views/推荐页面组件/Head_Left.vue";
-  import Head_Right from "@/views/推荐页面组件/Head_Right.vue";
-  import Search from "@/views/推荐页面组件/Search.vue";
+  import Head_Left from "@/views/导航栏组件/Head_Left.vue";
+  import Head_Right from "@/views/导航栏组件/Head_Right.vue";
+  import Search from "@/views/导航栏组件/Search.vue";
 
   const headerStyle = {
     display : 'flex',
@@ -44,8 +44,7 @@
 
 <script>
 import axios from "axios"
-axios.get("http://localhost:25535/demo_war/InquireNews").then((res) => {
-    console.log(res);
+axios.get("http://localhost:25535/demo_war/Servlet.InquireNews").then((res) => {
     console.log(res.data)
   }).catch((err) => {
     console.log('请求失败' + err);
