@@ -22,5 +22,4 @@ app.use(router)
 
 app.mount('#app')
 
-app.use(axios)
 

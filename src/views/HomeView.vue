@@ -6,7 +6,10 @@
         <Search></Search>
         <Head_Right></Head_Right>
       </a-layout-header>
-      <a-layout-content :style="contentStyle">Content</a-layout-content>
+      <a-layout-content :style="contentStyle" id="content">
+          <Recommend id="content-l"></Recommend>
+          <Classify id="content-r" style="display: none"></Classify>
+      </a-layout-content>
       <a-layout-footer :style="footerStyle">Footer</a-layout-footer>
 
     </a-layout>
@@ -17,6 +20,8 @@
   import Head_Left from "@/views/导航栏组件/Head_Left.vue";
   import Head_Right from "@/views/导航栏组件/Head_Right.vue";
   import Search from "@/views/导航栏组件/Search.vue";
+  import Recommend from "@/views/推荐页面组件/Recommend.vue";
+  import Classify from "@/views/分类页面组件/Classify.vue";
 
   const headerStyle = {
     display : 'flex',
@@ -31,7 +36,6 @@
     textAlign: 'center',
     minHeight: 120,
     lineHeight: '120px',
-    height: '630px',
     color: '#000',
     backgroundColor: '#fff',
   };
@@ -40,15 +44,6 @@
     color: '#000',
     backgroundColor: '#fff',
   };
-</script>
-
-<script>
-import axios from "axios"
-axios.get("http://localhost:25535/demo_war/Servlet.InquireNews").then((res) => {
-    console.log(res.data)
-  }).catch((err) => {
-    console.log('请求失败' + err);
-  })
 </script>
 
 <style>

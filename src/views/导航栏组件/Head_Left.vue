@@ -21,4 +21,17 @@ const items = ref([
     title: 'Navigation Two',
   },
 ]);
+
+addEventListener("click" , function () {
+  if(current.value[0] == 'mail'){
+    document.getElementById('content-r').style.display = 'none';
+    document.getElementById('content-l').style.display = 'block';
+  }
+  else{
+    document.getElementById('content-l').style.display = 'none';
+    document.getElementById('content-r').style.display = 'block';
+  }
+  //console.log(current.value[0]);
+})
+
 </script>

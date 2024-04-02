@@ -67,31 +67,39 @@ const showModal = () => {
   open.value = true;
 };
 const onFinish = values => {
-  console.log('Success:', values);
+  console.log('Success');
 };
 const onFinishFailed = errorInfo => {
   console.log('Failed:', errorInfo);
 };
 const handleOk = () => {
-  //console.log('Success:', formState.value);
+  //axios.get("https://103.91.210.232:45247/demo_war/Servlet.Login" , {
   axios.get("http://localhost:25535/demo_war/Servlet.Login" , {
     params:{
       username : formState.value.username,
       password : formState.value.password,
     }
   }).then((res) => {
+    modalText.value = 'The modal will be closed after two seconds';
+    confirmLoading.value = true;
+    if(res.data == true){
+      setTimeout(() => {
+        open.value = false;
+        confirmLoading.value = false;
+      }, 2000);
+
+    }
+    else{
+      setTimeout(() => {
+        confirmLoading.value = false;
+      }, 2000);
+    }
     console.log(res.data)
   }).catch((err) => {
     console.log('请求失败' + err);
   })
-
-  modalText.value = 'The modal will be closed after two seconds';
-  confirmLoading.value = true;
-  setTimeout(() => {
-    open.value = false;
-    confirmLoading.value = false;
-  }, 2000);
 };
 //--------------------------------------------------
+
 
 </script>
